@@ -1,0 +1,30 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 6fr 2fr 2fr;
+    grid-gap: 10px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+aside {
+    grid-row: 2 / 3;
+}
+
+main, div, footer {
+    grid-column: 2 / 3;
+}
+
+.main-menu, .second-menu {
+    grid-row: 2 / 3;
+    margin-top: 5px;
+    font-size: 10px;
+    color: lightgray
+}
