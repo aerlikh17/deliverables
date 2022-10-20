@@ -4,16 +4,20 @@ module.exports = {
     new: newFlight,
     create,
     index,
-    dynamicSort
+    dynamicSort, 
+    show
 };
 
 function newFlight(req, res) {
-    const newFlight = new Flight();
-    const dt = newFlight.departs;
-    const departsDate = dt.toISOString().slice(0, 16);
-
-    res.render('flights/new', {departsDate});
+    res.render('flights/new', { title: "Add Flight" });
 };
+
+function show (req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        if (err) console.log(err);
+        res.render('flights/show', {title: 'Flight Detail', flight});
+    });
+}
 
 function create(req, res) {
     console.log(req.body);
@@ -41,6 +45,6 @@ function index(req, res) {
     Flight.find({}, function(err, flights){
     flights.sort(dynamicSort('-departs'))
         if (err) res.send(err.message);
-        res.render('flights/index.ejs', { flights });
+        res.render('flights/index.ejs', { title: "All Flights", flights });
     }
 )};

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,8 @@
     <title>Document</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body>
-    <h2>Add a New Flight</h2>
+<body> -->
+    <%- include('../partials/header') %>
     <form action="/flights" method="POST">
     <label>Airline:
         <select name="airline">
@@ -34,5 +34,7 @@
     </label><br>
     <input type="submit" value="Add Flight">
     </form>
-</body>
-</html>
+<!-- </body>
+</html> -->
+
+<%- include('../partials/footer') %>
