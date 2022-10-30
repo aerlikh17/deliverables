@@ -11,19 +11,25 @@ function show(req, res) {
    });
 }
 
-function newTodo(req, res) {
+function newSkill(req, res) {
   res.render('new');
 }
 
 function create(req, res) {
   const skill = {skill: req.body};
   Skill.create(skill);
-  res.redirect('skills')
+  res.redirect('/skills');
 }
 
+function deleteSkill(req, res){
+  Skill.deleteSkill(req.params.id);
+  res.redirect('/skills')
+}
+ 
 module.exports = {
     index,
     show,
-    new: newTodo,
-    create
+    new: newSkill,
+    create,
+    delete: deleteSkill
 }
