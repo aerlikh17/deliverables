@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Express Dev Skills</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Dev Skills</h1>
+    <ul>
+      <% skills.forEach(function(s) { %>
+        <li>
+           <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
