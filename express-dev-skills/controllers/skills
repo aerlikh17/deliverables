@@ -11,7 +11,19 @@ function show(req, res) {
    });
 }
 
+function newTodo(req, res) {
+  res.render('new');
+}
+
+function create(req, res) {
+  const skill = {skill: req.body};
+  Skill.create(skill);
+  res.redirect('skills')
+}
+
 module.exports = {
     index,
-    show
+    show,
+    new: newTodo,
+    create
 }
