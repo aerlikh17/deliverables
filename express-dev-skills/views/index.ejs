@@ -8,12 +8,5 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <a href="/skills">SKILLS</a>
-    <% skills.forEach(function(s) { %>
-      <li>
-        <form action="/skills/<%= s.id %>?_method=DELETE"
-          class="delete-form" method="POST">
-          <button type="submit">X</button>
-        </form>
-    <% }); %>
   </body>
 </html>
