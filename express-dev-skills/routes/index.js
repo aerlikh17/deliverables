@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', skillsCtrl.new);
-router.post('/', skillsCtrl.create);
-
+router.post('/skills', skillsCtrl.create);
 
 module.exports = router;

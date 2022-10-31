@@ -16,7 +16,7 @@ function newSkill(req, res) {
 }
 
 function create(req, res) {
-  const skill = {skill: req.body};
+  const skill = {skill: req.body.skill};
   Skill.create(skill);
   res.redirect('/skills');
 }

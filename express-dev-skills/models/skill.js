@@ -1,7 +1,7 @@
 const skills = [
-    {id: 14573, skill: 'Use JavaScript'},
-    {id: 57382, skill: 'Use Node'},
-    {id: 46368, skill: 'HTML'}
+    {skill: 'Use JavaScript'},
+    {skill: 'Use Node'},
+    {skill: 'HTML'}
 ];
 
 function getAll() {
@@ -13,8 +13,9 @@ function getOne(id) {
 }
 
 function create(skill) {
-    skill.id = Date.now() % 10000;
+    console.log(skill)
     skills.push(skill);
+    console.log(skills)
 }
 
 function deleteOne(id) {
