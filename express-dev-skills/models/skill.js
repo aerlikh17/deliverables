@@ -26,5 +26,5 @@ module.exports = {
     getAll,
     getOne,
     create,
-    delete: deleteOne
+    deleteOne
 };
