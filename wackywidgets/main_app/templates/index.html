@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wacky Widgets</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% if widget_list|length == 0 %}
+    <h1>Wacky Widgets</h1>
+    <h2>No Widgets Exist</h2>
+    <hr>
+    {% else %}
+    <h1>Wacky Widgets</h1>
+    {% for widget in widgets %}
+    <table class = "pure-table pure-table-striped">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <td>{{ widget.description }}</td>
+        <td>{{ widget.quantity }}</td>
+        <td>
+            <a href="{% url 'delete_widget' widget.id %}">X</a>
+        </td>
+    </table>
+    {% endfor %}
+    {% endif %}
+    <h3>Add Widget</h3>
+    <form class ="pure-form" action="{% url 'add_widget' %}" method="post">
+    <!-- Django requires the following for security purposes -->
+    <table>
+        <!-- Render the inputs inside of <tr>s & <td>s -->
+        {% csrf_token %}    
+        {{ widget_form }}
+    </table>
+    <input type="submit" value="ADD WIDGET" class="btn">
+    </form>
+</body>
+</html>
